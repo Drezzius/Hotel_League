@@ -1,0 +1,61 @@
+{{#each errors}}
+<div class="alert alert-danger">{{ text }}</div>
+{{else}}
+
+{{/each}}
+<div class="container">
+    <div class="row">
+        <form class="col s12" action="/hotels" method="POST" enctype="multipart/form-data">
+            <div class="row">
+                <h3>Create New Hotel</h3>
+                <div class="input-field col s12">
+                    <input type="text" class="validate" name="name" placeholder="Hotel's Name" id="name"  required>
+                    <label class="active" for="title">Name</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <input type="tel" class="validate" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+                    <span class="note">Format: 123-456-7890</span>
+                    <label for="title">Phone Number</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input type="text" class="validate" id="webpage" name="webpage" required>
+                    <label for="title">Website</label>
+                </div>
+            </div>            
+            <div class="row">
+                <div class="input-field col s12">
+                    <input type="text" class="validate" id="email" name="email" required>
+                    <label for="title">Email</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input type="number" class="validate" id="price" name="price" required>
+                    <label for="title">Price per Night</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <textarea class="materialize-textarea validate" id="description" name="description" required></textarea>
+                </div>
+            </div>
+
+            <div class="file-field input-field">
+                <div class="btn">
+                    <span>File</span>
+                    <input type="file" name="images" accept=".jpg, .jpeg, .png" multiple>
+                </div>
+                <div class="file-path-wrapper">
+                    <input type="text" class="file-path validate" placeholder="Upload maximum 4 images">
+                </div>
+            </div>
+
+            <button type="submit" class="btn">Create Hotel</button>
+        </form>
+    </div>
+</div>

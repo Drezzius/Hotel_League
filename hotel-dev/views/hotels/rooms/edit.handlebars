@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="row">
+        <form class="col s12" action="/hotels/{{hotel.id}}/rooms/{{room.id}}?_method=PUT" method="POST">
+            <h3>Edit {{room.roomName}}</h3>
+            <div class="input-field col s12">
+                <input type="text" class="validate" id="roomName" name="roomName" value="{{room.roomName}}" required>
+                <label class="active" for="title">Room Name</label>
+            </div>
+
+            <div class="input-field col s12">
+                <input type="text" class="validate" id="roomDescription" name="roomDescription" value="{{room.roomDescription}}" required>
+                <label for="roomDescription">Room Description</label>
+            </div>
+
+            <div class="input-field col s12">
+                <input type="number" class="validate" id="roomPrice" name="roomPrice" value="{{room.roomPrice}}" required>
+                <label for="roomPrice">Price per Night</label>
+            </div>
+
+            <button type="submit" class="btn">Submit</button>
+        </form>
+    </div>
+</div>

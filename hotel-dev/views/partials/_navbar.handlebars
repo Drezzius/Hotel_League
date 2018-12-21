@@ -1,0 +1,39 @@
+<nav class="grey darken-3">
+    <div class="container">
+        <div class="nav-wrapper">
+            <a href="/" class="brand-logo center">Hotel</a>
+            <a href="#" data-target="main-menu" class="sidenav-trigger show-on-large"><i class="fa fa-bars fa-lg"></i></a>
+            {{!-- RIGHT NAV --}}
+            <ul class="right hide-on-small-only">
+                {{#if user}}
+                    <li><a href="/">Welcome {{user.name}}</a></li>
+                    <li><a href="/users/logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                {{else}}
+                    <li><a href="/"><i class="fas fa-home"></i> Home</a></li>
+                {{/if}}
+            </ul>
+            {{!-- SIDE MENU --}}
+            <ul class="sidenav" id="main-menu">
+                {{#if user}}
+
+                {{else}}
+                    <li><a href="/users/login" class="btn green darken-3"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+                    <li><a href="/users/register" class="nav-link"><i class="fa fa-unlock-alt sideIcon"></i> Register</a></li>
+                {{/if}}
+                    <li><a href="/"><i class="fa fa-home sideIcon"></i> Home Page</a></li>
+                    <li class="divider"></li>
+                {{#if superadmin}}
+                    <li><a href="/users/admin/register"><i class="fa fa-unlock-alt sideIcon"></i> Register Admin User</a></li>
+                {{/if}}
+                {{#if user}}
+                {{#or user.admin b user.superadmin}}
+                    <li><a href="/hotels/add"><i class="fas fa-plus sideIcon"></i> Create Hotel</a></li>
+                {{/or}}
+                    <li><a href="/hotels"><i class="fas fa-building sideIcon"></i> My Hotels</a></li>
+                    <li></li>
+                    <li><a href="/users/logout"><i class="fas fa-sign-out-alt sideIcon"></i> Logout</a></li>
+                {{/if}}
+            </ul>
+        </div>
+    </div>
+</nav>
